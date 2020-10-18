@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
-import { FiClock, FiInfo, FiArrowLeft } from "react-icons/fi";
+import { FiClock, FiInfo } from "react-icons/fi";
 import { Map, Marker, TileLayer } from "react-leaflet";
 import L from 'leaflet';
 import Sidebar from '../components/Sidebar';
+import { useParams } from 'react-router-dom';
 
 import mapMarkerImg from '../images/map-marker.svg';
 
 import '../styles/pages/orphanage.css';
+import api from "../services/api";
 
 const happyMapIcon = L.icon({
   iconUrl: mapMarkerImg,
@@ -17,7 +19,34 @@ const happyMapIcon = L.icon({
   popupAnchor: [0, -60]
 })
 
+interface Orphanage{
+  latitude:number;
+  longitude: number;
+  name: string;
+  instructions: string;
+  opening_hours: string;
+  open_on_weekends: string;
+  description: string;
+  images: Array<{
+    url: string;
+  }>
+}
+
+interface OrphanageParams{
+  id: string;
+}
+
 export default function Orphanage() {
+  
+  const params = useParams<OrphanageParams>();
+  const [orphanage, setOrphanage] = useState<Orphanage>();
+  
+  useEffect(()=>{
+     api.get(`orphanages/${params.id}`).then(response => {
+       const orphanages = response.data;
+       setOrphanage(orphanages);
+     })
+  }, [params.id]) 
 
   return (
     <div id="page-orphanage">

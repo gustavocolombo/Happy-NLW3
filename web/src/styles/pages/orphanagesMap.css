@@ -73,7 +73,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
+} 
 
 #page-map .map-popup .leaflet-popup-content a{
   width: 40px;
