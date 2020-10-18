@@ -13,7 +13,7 @@ function Routes(){
       <Route path="/orphanages/create" component= { CreateOrphanage } exact={true} />
       <Route path="/orphanages/:id" component= { Orphanage } exact={true} />
     </BrowserRouter>
-  );
+  ); 
 }
 
 export default Routes;
