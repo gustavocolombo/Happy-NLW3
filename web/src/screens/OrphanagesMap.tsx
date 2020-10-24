@@ -51,11 +51,12 @@ function OrphanagesMap(){
       </aside>
     
     <Map center={[-4.9783304,-39.0189615]} zoom={15} style={{width:'100%', height:'100%'}}>
-      <TileLayer url ="https://a.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
+      {/* <TileLayer url ="https://a.tile.openstreetmap.org/{z}/{x}/{y}.png"/> */}
+      <TileLayer url={`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}/>
 
       {orphanages.map(orphanage => {
         return(
-          <Marker 
+          <Marker   
             icon={mapIcon}
             position={[orphanage.latitude,orphanage.longitude]}
             key={orphanage.id}

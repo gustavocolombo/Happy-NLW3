@@ -19,6 +19,12 @@ form.create-orphanage-form {
   overflow: hidden;
 }
 
+form.create-orphanage-form {
+  margin-bottom: 40px;
+  border-radius: 20px;
+  border:1px solid;
+}
+
 form.create-orphanage-form fieldset {
   border: 0;
 }
