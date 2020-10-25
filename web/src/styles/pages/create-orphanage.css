@@ -25,6 +25,12 @@ form.create-orphanage-form {
   border:1px solid;
 }
 
+form.create-orphanage-form {
+  border: 1px solid;
+  border-radius: 20px;
+  margin-bottom: 40px;
+}
+
 form.create-orphanage-form fieldset {
   border: 0;
 }
