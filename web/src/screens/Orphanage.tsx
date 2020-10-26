@@ -51,7 +51,7 @@ export default function Orphanage() {
 
   if(!orphanage){
     return <p>Carregando...</p>
-  }
+  } 
 
   return (
     <div id="page-orphanage">
@@ -66,7 +66,7 @@ export default function Orphanage() {
               <button 
               className={activeImageIndex === index ? 'active' : ''} 
               type="button"
-              onClick={()=> {
+              onClick={()=> { 
                 setActiveImageIndex(index)
               }}
               >
