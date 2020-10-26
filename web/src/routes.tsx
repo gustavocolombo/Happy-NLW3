@@ -5,9 +5,13 @@ import OrphanagesMap from './screens/OrphanagesMap';
 import CreateOrphanage from './screens/CreateOrphanage';
 import Orphanage from './screens/Orphanage';
 
+import  {ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function Routes(){
   return (
     <BrowserRouter>
+    <ToastContainer/>
       <Switch>
         <Route path="/" component= { Landing } exact={true} />
         <Route path="/app" component= { OrphanagesMap } exact={true} />

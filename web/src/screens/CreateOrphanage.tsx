@@ -11,6 +11,7 @@ import Sidebar from "../components/Sidebar";
 
 import mapMarkerImg from "../images/map-marker.svg";
 import api from "../services/api";
+import { toast } from "react-toastify";
 
 
 const mapIcon = Leaflet.icon({
@@ -53,6 +54,11 @@ export default function CreateOrphanage() {
     setPreviewImages(selectedImagesPreview);
   };
 
+  function sendUserToMap(){
+    toast.success('Orfanato cadastrado com sucesso!');
+    history.push("/app");
+  }
+
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
 
@@ -74,9 +80,7 @@ export default function CreateOrphanage() {
 
     await api.post("/orphanages", data);
 
-    alert("Cadastro realizado com sucesso!");
-
-    history.push("/app");
+    sendUserToMap();
   };
 
   return (
